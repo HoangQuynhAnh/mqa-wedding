@@ -1,25 +1,20 @@
-<form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfoTqMHcVNYq-MKDu4mObBzFAyaSIqpuwPfE1SfiOKnrA6h7A/formResponse"
+<!-- <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfoTqMHcVNYq-MKDu4mObBzFAyaSIqpuwPfE1SfiOKnrA6h7A/formResponse"
       method="POST"
       target="_self">
 
-  <!-- Họ tên -->
   <label>Họ tên *</label><br>
   <input type="text" name="entry.711268530" required><br><br>
 
-  <!-- Bạn là -->
   <label>Bạn là *</label><br>
   <input type="radio" name="entry.354708559" value="Bạn cô dâu" required> Bạn cô dâu<br>
   <input type="radio" name="entry.354708559" value="Bạn chú rể"> Bạn chú rể<br>
   <input type="radio" name="entry.354708559" value="Họ hàng cô dâu"> Họ hàng cô dâu<br>
   <input type="radio" name="entry.354708559" value="Họ hàng chú rể"> Họ hàng chú rể<br><br>
 
-  <!-- Tham dự -->
   <label>Bạn có tham dự không? *</label><br>
   <input type="radio" name="entry.760047572" value="Có" required> Có<br>
   <input type="radio" name="entry.760047572" value="Không"> Không<br>
   <input type="radio" name="entry.760047572" value="Có thể"> Có thể<br><br>
-
-  <!-- Số người -->
   <label>Số người tham dự</label><br>
   <select name="entry.2019269458">
     <option value="">--Chọn--</option>
@@ -29,11 +24,177 @@
     <option value="4">4</option>
     <option value="5">5</option>
   </select><br><br>
-
-  <!-- Ăn chay -->
   <label>Bạn có ăn chay?</label><br>
   <input type="radio" name="entry.1622976615" value="Có"> Có<br>
   <input type="radio" name="entry.1622976615" value="Không"> Không<br><br>
 
   <button type="submit">Gửi xác nhận</button>
-</form>
+</form> -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thiệp cưới</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #e7b4b4, #d4a0a0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Card */
+    .card {
+      background: #fff5f5;
+      width: 320px;
+      z-index: 10;
+      border-radius: 16px;
+      text-align: center;
+      padding: 100px 20px 40px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    /* Envelope top */
+    .envelope {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      background: #8d5c5c;
+      border-radius: 16px 16px 0 0;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .heart-icon {
+      width: 40px;
+      height: 40px;
+      background: red;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 20px;
+    }
+
+    h1 {
+      margin: 10px 0;
+      font-size: 26px;
+      color: #6b3d3d;
+    }
+
+    .date {
+      color: #8a6a6a;
+      margin: 8px 0;
+    }
+
+    .invite {
+      margin: 12px 0 20px;
+      color: #6b3d3d;
+    }
+
+    button {
+      background: #8d5c5c;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background: #734747;
+    }
+
+    /* Falling hearts */
+    .heart {
+      position: absolute;
+      top: -20px;
+      width: 12px;
+      height: 12px;
+      background: red;
+      transform: rotate(45deg);
+      animation: fall linear forwards;
+
+  /* viền ngoài */
+      filter: drop-shadow(0 0 0 black)
+        drop-shadow(1px 1px 0 black)
+        drop-shadow(-1px -1px 0 black);
+  }
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -6px;
+  left: 0;
+}
+
+.heart::after {
+  left: -6px;
+  top: 0;
+}
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="envelope">
+      <div class="heart-icon">❤</div>
+    </div>
+
+    <h1>Bảo & Vy</h1>
+    <div class="date">23 tháng 11, 2025</div>
+    <div class="invite">Thân Mời</div>
+    <button>✉ Mở thiệp</button>
+  </div>
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  heart.style.animationDuration = Math.random() * 4 + 6 + "s"; // chậm 6–10s
+  heart.style.opacity = Math.random() * 0.5 + 0.5;
+  heart.style.transform = `rotate(45deg) scale(${Math.random() * 0.6 + 0.6})`;
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 10000);
+}
+
+setInterval(createHeart, 600); // ít hơn, rơi nhẹ nhàng
+</script>
+
+</body>
+</html>
