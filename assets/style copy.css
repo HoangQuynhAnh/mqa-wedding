@@ -1,0 +1,178 @@
+
+
+body {
+  margin: 0;
+  min-height: 100svh; /* chuẩn mobile */
+  background: linear-gradient(to bottom, #e7b4b4, #d4a0a0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+    /* Card */
+.card {
+  background: #fff5f5;
+  width: min(90vw, 360px);
+  padding: 100px 20px 40px;
+  border-radius: 16px;
+  z-index: 10;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+    /* Envelope top */
+.envelope {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background: #8d5c5c;
+  border-radius: 16px 16px 0 0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart-icon {
+  width: 40px;
+  height: 40px;
+  background: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 26px;
+  color: #6b3d3d;
+}
+
+.date {
+  color: #8a6a6a;
+  margin: 8px 0;
+}
+
+.invite {
+  margin: 12px 0 20px;
+  color: #6b3d3d;
+}
+
+button {
+  background: #8d5c5c;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background: #734747;
+}
+
+    /* Falling hearts */
+.heart {
+  position: absolute;
+  top: -20px;
+  width: 12px;
+  height: 12px;
+  background: red;
+  transform: rotate(45deg);
+  animation: floatFall linear forwards;
+  z-index: 1;
+  pointer-events: none;
+
+  /* viền ngoài */
+      filter: drop-shadow(0 0 0 black)
+        drop-shadow(1px 1px 0 black)
+        drop-shadow(-1px -1px 0 black);
+  }
+  .heart.dark {
+  background: linear-gradient(
+    to right,
+    #b30000 0%,
+    #b30000 12%,
+    #ff2a2a 20%,
+    #ff2a2a 100%
+  );
+}
+
+.heart.dark::before,
+.heart.dark::after {
+  background: linear-gradient(
+    to right,
+    #b30000 0%,
+    #b30000 12%,
+    #ff2a2a 20%,
+    #ff2a2a 100%
+  );
+}
+
+/* tim đỏ nhạt */
+.heart.light {
+  background: linear-gradient(
+    to right,
+    #ff9aaa 0%,
+    #ff9aaa 12%,
+    #ff5c7a 20%,
+    #ff5c7a 100%
+  );
+}
+
+.heart.light::before,
+.heart.light::after {
+  background: linear-gradient(
+    to right,
+    #ff9aaa 0%,
+    #ff9aaa 12%,
+    #ff5c7a 20%,
+    #ff5c7a 100%
+  );
+}
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -6px;
+  left: 0;
+}
+
+.heart::after {
+  left: -6px;
+  top: 0;
+}
+
+
+@keyframes floatFall {
+  0% {
+    transform: translateY(0) rotate(var(--rotate-start)) scale(var(--size));
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translateY(50vh) rotate(var(--rotate-mid)) scale(var(--size));
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(110vh) rotate(var(--rotate-end)) scale(var(--size));
+    opacity: 0;
+  }
+}

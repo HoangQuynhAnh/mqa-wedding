@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Thiệp cưới</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pattaya&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-red-color {
+            background-color: #882925;
+        }
+
+        .text-red-color {
+            color: #882925;
+        }
+
+        .bg-light {
+            background-color: #ecdfd6
+        }
+
+        .header {
+            position: relative;
+            height: 250px;
+        }
+
+        .dragon {
+            background-image: url('./assets/double-dragon.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 1;
+            mix-blend-mode: screen;
+        }
+
+        h1 {
+            z-index: 3;
+        }
+
+        .font-pattaya {
+            font-family: Pattaya, cursive;
+        }
+    </style>
+</head>
+
+<body class="bg-light text-[#1f3b2c] ">
+<audio autoplay id="bgMusic" loop>
+  <source src="./assets/coai.mp3" type="audio/mpeg">
+</audio>
+    <!-- Header -->
+    <div class="header relative text-center overflow-hidden">
+        <!-- nền đỏ -->
+        <div class="bg-red-color absolute inset-0 z-0"></div>
+        <!-- nền sáng ở giữa -->
+        <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[128px] bg-light z-1"></div>
+        <!-- dragon đè lên tất cả -->
+        <div class="dragon absolute inset-0 z-10 pointer-events-none"></div>
+        <!-- chữ -->
+        <h1 class="absolute inset-x-0 top-1/2 -translate-y-1/2 z-20 
+           h-[128px] flex items-center justify-center 
+                  text-4xl text-[#882925] font-pattaya"> Happy Wedding </h1>
+    </div>
+    <!-- Couple -->
+    <div class="max-w-4xl mx-auto mt-[-128px] px-4 py-10 grid grid-cols-2 md:grid-cols-2 gap-6 text-center relative z-10">
+        <!-- Groom -->
+        <div>
+            <img src="./assets/round-minh.jpg" class="w-3/4 md:w-48 mx-auto rounded-full object-cover " />
+            <div class="px-1 flex justify-center items-end gap-2 mt-2">
+                <div class="text-2xl font-pattaya md:text-4xl whitespace-nowrap max-w-full flex items-end text-red-color"> Ngọc Minh</div>
+            </div>
+            <div class="flex justify-center mt-4 ">
+                <hr class="border-t w-20 py-2" style="border-color: black;" />
+            </div>
+            <h3 class=" font-pattaya">Nguyễn Văn Tư</h3>
+            <h3 class=" font-pattaya">Nguyễn Thị Xuyến</h3>
+            <p class="mt-1 text-sm font-semibold mt-2">Khu du lịch bản Meo, Nam Dương, Bắc Ninh </p>
+        </div>
+        <!-- Bride -->
+        <div>
+            <img src="./assets/round-quanh.jpg" class="w-3/4 md:w-48  mx-auto rounded-full object-cover " />
+            <div class="px-1 flex justify-center items-end gap-2 mt-2">
+                <div class="text-2xl font-pattaya md:text-4xl whitespace-nowrap max-w-full flex items-end text-red-color"> Ngọc Minh</div>
+            </div>
+            <div class="flex justify-center mt-4 ">
+                <hr class="border-t w-20 py-2" style="border-color: black;" />
+            </div>
+            <h3 class=" font-pattaya">Hoàng Văn Sỹ</h3>
+            <h3 class=" font-pattaya">Trần Thị Thuý Hà</h3>
+            <p class="mt-1 text-sm mt-2 font-semibold">Đức Giang, Việt Hưng, Hà Nội </p>
+        </div>
+    </div>
+    <!-- Time -->
+    <div class="text-center pb-10 px-4 pb-4">
+        <hr class="border-0 h-[2px] my-6 bg-gradient-to-r from-transparent via-red-800 to-transparent" />
+        <p class="uppercase tracking-widest text-sm mt-10 ">
+            <span class="text-red-color font-bold py-4">Lễ ăn hỏi</span> được cử hành tại <span class="text-red-color font-bold">tư gia</span>
+        </p>
+        <p class="mt-2 uppercase tracking-widest text-sm">Vào sáng lúc</p>
+        <div class="text-4xl font-bold mt-4 text-red-color">09:30</div>
+        <div class="flex justify-center items-center gap-2 mt-8 text-lg">
+            <span class="uppercase">Chủ Nhật</span>
+            <span>|</span>
+            <span class="text-4xl font-semibold text-red-color">08</span>
+            <span>|</span>
+            <span class="uppercase">Tháng </span>
+            <span class="text-red-color text-4xl font-semibold">03</span>
+        </div>
+        <div class="mt-2 text-2xl font-semibold text-red-color">2026</div>
+        <div class="mt-2 italic mt-5">(Tức ngày 20 tháng 03 Bính Ngọ)</div>
+        <a href="https://www.google.com/maps?q=21.066576238632766,105.8834728452106" target="_blank">
+            <button class="mt-6 bg-red-color text-white px-8 py-3 rounded-full shadow-lg hover:opacity-90 transition"> Xem địa chỉ nhà trên Google Maps </button>
+        </a>
+    </div>
+    <hr class="border-0 h-[2px] my-6 bg-gradient-to-r from-transparent via-red-800 to-transparent" />
+    <!-- Wedding Party Time -->
+    <section class="bg-light text-center pt-12 py-8 px-4">
+        <h2 class="text-2xl md:text-3xl mb-4 text-red-color font-pattaya"> Tiệc cưới sẽ diễn ra vào sáng lúc: </h2>
+        <div class="text-3xl font-semibold mb-4 text-red-color">10:00</div>
+        <div class="flex justify-center items-center gap-4 text-lg text-[#1f3b2c]">
+            <span>CHỦ NHẬT</span>
+            <span>|</span>
+            <span class="text-4xl font-bold text-red-color">15</span>
+            <span>|</span>
+            <span>THÁNG </span>
+            <span class="text-red-color font-bold text-4xl">03</span>
+        </div>
+        <div class="text-xl font-bold mt-2 text-red-color">2026</div>
+        <div class="italic mt-2 mb-4">(Tức ngày 27 tháng 03 Bính Ngọ)</div>
+    </section>
+    <div class="flex justify-center">
+       <div class=" p-6 mb-7">
+            <hr class="border-0 h-[2px] my-6 bg-gradient-to-r from-transparent via-red-800 to-transparent " />
+            <h2 class="text-center tracking-widest mb-6 text-red-color text-xl font-pattaya py-4">Chương trình tiệc cưới</h2>
+            <div class="relative">
+                <!-- line -->
+                <div class="absolute left-[60px] top-0 bottom-0 w-[2px] bg-pink-300 opacity-60 shadow-[0_0_6px_rgba(236,72,153,0.6)]"></div>
+                <!-- item -->
+                <div class="flex items-center mb-6">
+                    <div class="w-[50px] text-sm font-bold">10:00</div>
+                    <div class="w-[20px] h-[20px] bg-light border-2 border-gray-400 rounded-full z-10"></div>
+                    <div class="ml-4 flex items-center gap-2"> 🏠 <span>Đón khách</span>
+                    </div>
+                </div>
+                <div class="flex items-center mb-6">
+                    <div class="w-[50px] text-sm font-bold">10:20</div>
+                    <div class="w-[20px] h-[20px] bg-light border-2 border-gray-400 rounded-full z-10"></div>
+                    <div class="ml-4 flex items-center gap-2"> 📸 <span>Chụp ảnh photobooth</span>
+                    </div>
+                </div>
+                <div class="flex items-center mb-6">
+                    <div class="w-[50px] text-sm font-bold">11:00</div>
+                    <div class="w-[20px] h-[20px] bg-light border-2 border-gray-400 rounded-full z-10"></div>
+                    <div class="ml-4 flex items-center gap-2"> 💍 <span>Nghi lễ</span>
+                    </div>
+                </div>
+                <div class="flex items-center mb-6">
+                    <div class="w-[50px] text-sm font-bold">11:15</div>
+                    <div class="w-[20px] h-[20px] bg-light border-2 border-gray-400 rounded-full z-10"></div>
+                    <div class="ml-4 flex items-center gap-2"> 🍽️ <span>Khai tiệc</span>
+                    </div>
+                </div>
+                <div class="flex items-center mb-6">
+                    <div class="w-[50px] text-sm font-bold">11:30</div>
+                    <div class="w-[20px] h-[20px] bg-light border-2 border-gray-400 rounded-full z-10"></div>
+                    <div class="ml-4 flex items-center gap-2"> 🎵 <span>Âm nhạc</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-[50px] text-sm font-bold">12:30</div>
+                    <div class="w-[20px] h-[20px] bg-light border-2 border-gray-400 rounded-full z-10"></div>
+                    <div class="ml-4 flex items-center gap-2"> 🍪 <span>Quà cảm ơn khách</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="bg-white py-12 px-4 rounded-xl">
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1f3b2c] text-center mb-6"> Tiệc cưới sẽ tổ chức tại: </h2>
+        <!-- Google Map -->
+        <div class="my-4 text-left leading-relaxed bg-light p-4 rounded-xl"> Tầng 3, sảnh Inter, trung tâm tiệc cưới <span class="text-red-color font-semibold">Nguyên Đình Long Biên</span>, TTTM Savico MegaMall, số 7-9 Nguyễn Văn Linh, Hà Nội </div>
+        <div class="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4300.512687248037!2d105.89073121130464!3d21.050463686951023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abbfa96f309f%3A0xb4a28a19cfb53483!2sTASCO%20Mall!5e1!3m2!1svi!2s!4v1772526555043!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="flex justify-center">
+            <a href="https://www.google.com/maps?q=21.051033970423976,105.89290362024052" target="_blank">
+            <button class="mt-6 bg-red-color text-white px-8 py-3 rounded-full shadow-lg hover:opacity-90 transition"> Xem địa chỉ tiệc cưới trên Google Maps </button>
+        </div>
+    </section>
+
+  <!-- nền rồng -->
+  <!-- <div class=" absolute inset-0 opacity-20 pointer-events-none" style="background-image: ('./assets/double-dragon.png')"></div>
+    <hr class="border-0 h-[2px] my-6 bg-gradient-to-r from-transparent via-red-800 to-transparent" />  -->
+  <!-- nội dung -->
+  <div class="relative z-10 p-6 rounded-xl ">
+
+    <!-- <h2 class="text-center font-pattaya text-2xl  text-red-color rounded-t-xl py-3 mb-4">
+      Hộp Mừng Cưới
+    </h2> -->
+
+    <!-- <div class="grid grid-cols-2 gap-4">
+
+      <div class="text-center">
+        <p class="font-semibold">Bố cô dâu</p>
+        <p>Hoàng Văn Sỹ</p>
+        <img src="qr1.png" class="mx-auto w-32 rounded-lg shadow">
+        <p class="text-sm mt-2">Vietinbank</p>
+      </div>
+
+      <div class="text-center">
+        <p class="font-semibold">Cô Dâu</p>
+        <p>Quỳnh Anh</p>
+        <img src="./assets/qr-quynhanh.png" class="mx-auto w-32 rounded-lg shadow">
+        <p class="text-sm mt-2">VP Bank</p>
+      </div>
+
+    </div> -->
+
+  </div>
+</div>
+<p class="text-center mt-4 font-bold italic text-lg mb-10"> Sự hiện diện của quý khách là niềm vinh hạnh của gia đình chúng tôi! </p>
+
+      
+        <!-- Location -->
+        <!-- Album -->
+        <!-- <div class="py-10 px-4">
+         <h2 class="text-center text-2xl font-bold mb-6">Album Ảnh Cưới</h2>
+         
+         <div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
+           <img src="https://via.placeholder.com/400" class="rounded-xl shadow">
+           <img src="https://via.placeholder.com/400" class="rounded-xl shadow">
+           <img src="https://via.placeholder.com/400" class="rounded-xl shadow">
+           <img src="https://via.placeholder.com/400" class="rounded-xl shadow">
+         </div>
+         </div> -->
+         
+</body>
+
+</html>
+<script>
+</script>
