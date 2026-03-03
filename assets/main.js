@@ -25,4 +25,18 @@
   setTimeout(() => heart.remove(), duration * 1000);
 }
 
-setInterval(createHeart, 700);
+let heartInterval = setInterval(createHeart, 700);
+
+function stopHearts() {
+  clearInterval(heartInterval);
+  document.querySelectorAll(".heart").forEach(h => h.remove());
+}
+const openBtn = document.getElementById("openBtn");
+const card = document.getElementById("card");
+const envelope = document.getElementById("envelope");
+stopHearts();
+openBtn.addEventListener("click", () => {
+  stopHearts();
+  card.style.display = "block";
+  // envelope.style.display = "none";
+});
