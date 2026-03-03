@@ -240,5 +240,19 @@
 </body>
 
 </html>
+
 <script>
+  const music = document.getElementById("bgMusic");
+
+function playMusicOnce() {
+  music.play().catch(err => {
+    console.log("Autoplay bị chặn:", err);
+  });
+
+  document.removeEventListener("click", playMusicOnce);
+  document.removeEventListener("touchstart", playMusicOnce);
+}
+
+document.addEventListener("click", playMusicOnce);
+document.addEventListener("touchstart", playMusicOnce);
 </script>
