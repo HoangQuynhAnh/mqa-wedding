@@ -174,7 +174,7 @@
           <span class="text-primary font-bold text-4xl">03</span>
       </div>
       <div class="text-xl font-bold mt-2 text-primary">2026</div>
-      <div class="italic mt-2 mb-4">(Tức ngày 27 tháng 03 Bính Ngọ)</div>
+      <div class="italic mt-2 mb-4">(Tức ngày 27 tháng 01 Bính Ngọ)</div>
       <div class=" px-2 leading-[30px] mt-5">
         Địa điểm: Tầng 3, sảnh Inter, trung tâm tiệc cưới
         <span class="font-semibold text-primary">Nguyên Đình Long Biên,</span><br>
@@ -371,4 +371,17 @@ function closeRSVP(){
   formWrapper.classList.remove("hidden");
   thankYou.classList.add("hidden");
 }
+  const music = document.getElementById("bgMusic");
+
+function playMusicOnce() {
+  music.play().catch(err => {
+    console.log("Autoplay bị chặn:", err);
+  });
+
+  document.removeEventListener("click", playMusicOnce);
+  document.removeEventListener("touchstart", playMusicOnce);
+}
+
+document.addEventListener("click", playMusicOnce);
+document.addEventListener("touchstart", playMusicOnce);
 </script>
