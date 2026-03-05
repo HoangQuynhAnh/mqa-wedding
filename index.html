@@ -474,7 +474,7 @@ justify-center text-xl hover:scale-110 transition">
     <!-- THANK YOU -->
     <div id="thankYou" class="hidden text-center py-10">
       <h2 class="text-2xl mb-2">💚 Cảm ơn bạn!</h2>
-      <p>Bọn mình rất vui vì bạn đã xác nhận tham dự.</p>
+      <p>Bọn mình rất vui vì bạn đã xác nhận.</p>
       <button onclick="closeRSVP()"
         class="mt-4 px-4 py-2 bg-[#2f3a2f] text-[#f6f3ec] rounded">
         Đóng
@@ -513,6 +513,7 @@ const thankYou = document.getElementById("thankYou");
 const formWrapper = document.getElementById("formWrapper");
 const modal = document.getElementById("rsvpModal");
 const music = document.getElementById("bgMusic");
+music.volume = 0.8;
 const musicBtn = document.getElementById("musicBtn");
 
 // Cấu hình âm lượng
