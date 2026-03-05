@@ -117,12 +117,26 @@
 .glow-bride{
   animation: glow2 4s infinite;
 }
+.music-rotate{
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }
+}
 </style>
 <body class="bg-[#f6f3ec] text-[#333] font-['Inter']">
-<audio autoplay id="bgMusic" loop>
+<audio autoplay id="bgMusic" loop  >
   <source src="./assets/coai.mp3" type="audio/mpeg">
 </audio> 
-
+<button id="musicBtn"
+onclick="toggleMusic()"
+class="fixed bottom-6 right-6 z-50 bg-white/80 backdrop-blur 
+w-12 h-12 rounded-full shadow-lg flex items-center 
+justify-center text-xl hover:scale-110 transition">
+🔇
+</button>
 <!-- HERO -->
 <section class="hero relative h-screen bg-cover bg-center flex items-center justify-center">
 
@@ -498,6 +512,11 @@ const form = document.getElementById("rsvpForm");
 const thankYou = document.getElementById("thankYou");
 const formWrapper = document.getElementById("formWrapper");
 const modal = document.getElementById("rsvpModal");
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+// Cấu hình âm lượng
+
 function openRSVP(){
   modal.classList.remove("hidden");
   modal.classList.add("flex");
@@ -505,9 +524,7 @@ function openRSVP(){
 
 form.addEventListener("submit", function(e){
   e.preventDefault();
-
   const formData = new FormData(form);
-
   fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLSfoTqMHcVNYq-MKDu4mObBzFAyaSIqpuwPfE1SfiOKnrA6h7A/formResponse", {
     method: "POST",
     body: formData,
@@ -526,21 +543,44 @@ function closeRSVP(){
   formWrapper.classList.remove("hidden");
   thankYou.classList.add("hidden");
 }
-  const music = document.getElementById("bgMusic");
-
-function playMusicOnce() {
-  music.play().catch(err => {
-    console.log("Autoplay bị chặn:", err);
-  });
-
-  document.removeEventListener("click", playMusicOnce);
-  document.removeEventListener("touchstart", playMusicOnce);
+function updateMusicUI() {
+  if (music.paused) {
+    musicBtn.innerText = "🔇";
+    musicBtn.classList.remove("music-rotate");
+  } else {
+    musicBtn.innerText = "🎵";
+    musicBtn.classList.add("music-rotate");
+  }
 }
 
-document.addEventListener("click", playMusicOnce);
-document.addEventListener("touchstart", playMusicOnce);
-function openQR(type){
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
+  updateMusicUI();
+}
 
+// Hàm kích hoạt nhạc khi có tương tác đầu tiên
+function initAudio() {
+  music.play().then(() => {
+    updateMusicUI();
+    // Sau khi đã phát thành công, gỡ bỏ các event listener để không chạy lại
+    document.removeEventListener("click", initAudio);
+    document.removeEventListener("touchstart", initAudio);
+    document.removeEventListener("scroll", initAudio);
+  }).catch(err => {
+    console.log("Trình duyệt vẫn chặn autoplay:", err);
+  });
+}
+
+// Lắng nghe tương tác từ người dùng (Click, Chạm, hoặc Cuộn trang)
+document.addEventListener("click", initAudio);
+document.addEventListener("touchstart", initAudio);
+document.addEventListener("scroll", initAudio, { once: true });
+
+function openQR(type){
   const modal = document.getElementById("qrModal");
   const title = document.getElementById("qrTitle");
   const img = document.getElementById("qrImage");
@@ -549,12 +589,10 @@ function openQR(type){
     title.innerText = "Mừng cưới Chú rể";
     img.src = "./assets/minh-qr.jpg";  
   }
-
   if(type === "bride"){
     title.innerText = "Mừng cưới Cô dâu";
     img.src = "./assets/quanh-qr.jpg";   
   }
-
   modal.classList.remove("hidden");
   modal.classList.add("flex");
 }
@@ -564,5 +602,4 @@ function closeQR(){
   modal.classList.add("hidden");
   modal.classList.remove("flex");
 }
-
 </script>
