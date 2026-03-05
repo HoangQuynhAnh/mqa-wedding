@@ -12,13 +12,13 @@
 
 </head>
 <style>
-   .font-pattaya {
-            font-family: Pattaya, cursive;
-        }
+  .font-pattaya {
+      font-family: Pattaya, cursive;
+  }
   .hero{
     background-image: url('./assets/photo_2026-03-04_14-07-00.jpg');
   }
-  .text-sub-primary {
+  .text-sub {
     color: oklch(56.273% .054 154.39);
   }
   .text-primary {
@@ -30,14 +30,17 @@
   .bg-sub{
     background-color: #f6f3ec
   }
+  .bg-light{
+    color: oklch(56.273% .054 154.39);
+  }
   .bg-primary{
     background-color: #2f3a2f;
   }
 </style>
 <body class="bg-[#f6f3ec] text-[#333] font-['Inter']">
-<audio autoplay id="bgMusic" loop>
+<!-- <audio autoplay id="bgMusic" loop>
   <source src="./assets/coai.mp3" type="audio/mpeg">
-</audio>
+</audio> -->
 
 <!-- HERO -->
 <section class="hero relative h-screen bg-cover bg-center flex items-center justify-center">
@@ -47,7 +50,7 @@
 
   <!-- content -->
   <div class="relative text-center text-white px-4 space-y-7 md:space-y-10">
-    <p class="tracking-[4px] text-sm">SAVE THE DATE</p>
+    <p class="tracking-[4px] text-sm uppercase">wedding invitation</p>
 
     <h1 class="font-['Playfair_Display'] text-4xl md:text-6xl tracking-[4px] uppercase">
       Minh <span class="font-light">&</span> Quỳnh Anh
@@ -183,6 +186,7 @@
        <div class="flex justify-center">
             <a href="https://www.google.com/maps?q=21.051033970423976,105.89290362024052" target="_blank">
             <button class="mt-6 bg-primary text-white px-8 py-3 rounded-full shadow-lg hover:opacity-90 transition"> Xem địa chỉ tiệc cưới trên Google Maps </button>
+            </a>
         </div>
     </div>
   </div>
@@ -236,11 +240,21 @@
     </div>
 </section>
 
-
-<!-- SCHEDULE -->
+<!-- MONEY -->
+ <section class="bg-light text-center pt-12 py-8 px-4 ">
+  <div class="border border-gray-800 border-dashed p-8 rounded-2xl">
+     <div class="text-primary text-4xl font-pattaya py-8">HỘP MỪNG CƯỚI</div>
+      <div class="grid grid-cols-2 gap-4 mt-4">
+        <button onclick="openQR('groom')" class="mt-6 bg-green-700 text-white px-8 py-3 rounded-2xl shadow-lg hover:opacity-90 transition">Chú rể</button>
+        <button onclick="openQR('bride')" class="mt-6 bg-green-700 text-white px-8 py-3 rounded-2xl shadow-lg hover:opacity-90 transition">Cô dâu</button>
+      </div>
+  </div>
+ </section>
+ <!-- MONEY -->
+<!-- ENDING -->
 <p class="text-center mt-4 font-bold italic text-lg mb-10"> Sự tham dự của bạn là niềm vinh hạnh của chúng tôi! </p>
 
-<!-- STORY -->
+<!-- ENDING -->
 
 
 <!-- MODAL RSVP -->
@@ -335,7 +349,28 @@
 
   </div>
 </div>
+<div id="qrModal"
+  class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
+<div onclick="event.stopPropagation()"
+class="bg-[#f6f3ec] p-6 rounded-xl text-center relative max-w-sm w-full">
 
+  <!-- Close -->
+  <button onclick="closeQR()"
+    class="absolute top-3 right-3 text-xl">✕</button>
+
+  <h2 id="qrTitle"
+    class="text-2xl mb-4 font-['Playfair_Display'] text-[#2f3a2f]">
+  </h2>
+
+  <!-- QR -->
+  <img id="qrImage"
+    class="mx-auto rounded-lg shadow-md"
+    src=""
+  />
+
+</div>
+
+</div>
 </body>
 </html>
 <script>
@@ -384,4 +419,30 @@ function playMusicOnce() {
 
 document.addEventListener("click", playMusicOnce);
 document.addEventListener("touchstart", playMusicOnce);
+function openQR(type){
+
+  const modal = document.getElementById("qrModal");
+  const title = document.getElementById("qrTitle");
+  const img = document.getElementById("qrImage");
+
+  if(type === "groom"){
+    title.innerText = "Mừng cưới Chú rể";
+    img.src = "./assets/minh-qr.jpg";  
+  }
+
+  if(type === "bride"){
+    title.innerText = "Mừng cưới Cô dâu";
+    img.src = "./assets/quanh-qr.jpg";   
+  }
+
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+}
+
+function closeQR(){
+  const modal = document.getElementById("qrModal");
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+}
+
 </script>
